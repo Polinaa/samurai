@@ -1,0 +1,12 @@
+.friendBlock {
+    margin-right: 8px;
+    margin-top: 8px;
+    float: left;
+}
+
+.ava {
+    background: orange;
+    width: 45px;
+    height: 45px;
+    border-radius: 30px;
+}
