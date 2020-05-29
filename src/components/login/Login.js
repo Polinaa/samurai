@@ -2,6 +2,10 @@ import React from 'react';
 import {Field, reduxForm} from "redux-form";
 import {connect} from "react-redux";
 import {loginThunkCreator} from "../../redux/auth-reducer";
+import {maxLength, required} from "../../utils/validators/validators";
+import {Input} from "../common/form-controls/form-controls";
+
+const maxLength5 = maxLength(5);
 
 const LoginForm = (props) => {
     //handle submit
@@ -12,13 +16,19 @@ const LoginForm = (props) => {
         <div>
             <form onSubmit={props.handleSubmit}>
                 <div>
-                    <Field placeholder={"Login"} component={"input"} name={"login"}/>
+                    <Field placeholder={"Login"}
+                           validate={[required, maxLength5]}
+                           component={Input}
+                           name={"login"}/>
                 </div>
                 <div>
-                    <Field placeholder={"Password"} component={"input"} name={"password"}/>
+                    <Field placeholder={"Password"}
+                           validate={[required, maxLength5]}
+                           component={Input}
+                           name={"password"}/>
                 </div>
                 <div>
-                    <Field type={"checkbox"} component={"input"} name={"rememberMe"}/> remember me
+                    <Field type={"checkbox"} component={Input} name={"rememberMe"}/> remember me
                 </div>
                 <div>
                     <button>Login</button>
