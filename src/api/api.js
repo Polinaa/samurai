@@ -44,8 +44,8 @@ export const AuthApi = {
         return (instance.get(`auth/me`)
             .then(response => response.data));
     },
-    login(email, password, rememberMe, captcha) {
-        return (instance.post(`auth/login`, {email, password, rememberMe, captcha} )
+    login(email, password, rememberMe = false) {
+        return (instance.post(`auth/login`, {email, password, rememberMe} )
             .then(response => response.data));
     },
     logout() {

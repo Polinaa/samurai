@@ -15,13 +15,12 @@ const authReducer = (state = initialState, action) => {
     if (action.type === SET_USER_DATA) {
         return {
             ...state,
-            ...action.data,
-            isAuth: true
+            ...action.data
         };
     }
     return state;
 }
-export const setUserData = (userId, email, login) => ({type: SET_USER_DATA, data: {userId, email, login}});
+export const setUserData = (userId, email, login, isAuth) => ({type: SET_USER_DATA, data: {userId, email, login, isAuth}});
 
 
 export const authMeThunkCreator = () => {
@@ -31,7 +30,7 @@ export const authMeThunkCreator = () => {
             .then(data => {
                     if (data.resultCode === 0) {
                         let {id, email, login} = data.data;
-                        dispatch(setUserData(id, email, login));
+                        dispatch(setUserData(id, email, login, true));
                         // this.props.setIsFetching(false);
                     }
                 }
@@ -39,11 +38,24 @@ export const authMeThunkCreator = () => {
     }
 }
 
-export const loginThunkCreator = (email, password, rememberMe, captcha) => {
+export const loginThunkCreator = (email, password, rememberMe) => {
     return (dispatch) => {
-        AuthApi.login(email, password, rememberMe, captcha)
+        AuthApi.login(email, password, rememberMe)
             .then(data => {
                     if (data.resultCode === 0) {
+                        dispatch(authMeThunkCreator())
+                    }
+                }
+            );
+    }
+}
+
+export const logoutThunkCreator = () => {
+    return (dispatch) => {
+        AuthApi.logout()
+            .then(data => {
+                    if (data.resultCode === 0) {
+                        dispatch(setUserData(null, null, null, false));
                     }
                 }
             );
