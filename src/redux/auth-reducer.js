@@ -30,7 +30,7 @@ export const setUserData = (userId, email, login, isAuth) => ({
 export const authMeThunkCreator = () => {
     return (dispatch) => {
         // this.props.setIsFetching(true);
-        AuthApi.authMe()
+        return AuthApi.authMe()
             .then(data => {
                     if (data.resultCode === 0) {
                         let {id, email, login} = data.data;
