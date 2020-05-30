@@ -5,6 +5,7 @@ import {loginThunkCreator, logoutThunkCreator} from "../../redux/auth-reducer";
 import {maxLength, required} from "../../utils/validators/validators";
 import {Input} from "../common/form-controls/form-controls";
 import {Redirect} from "react-router-dom";
+import s from "../common/form-controls/form-control.module.css"
 
 const maxLength50 = maxLength(50);
 
@@ -32,6 +33,9 @@ const LoginForm = (props) => {
                 <div>
                     <Field type={"checkbox"} component={Input} name={"rememberMe"}/> remember me
                 </div>
+                {props.error
+                &&
+                (<div className={s.formSummeryError}>{props.error}</div>)}
                 <div>
                     <button>Login</button>
                 </div>
@@ -51,7 +55,7 @@ const Login = (props) => {
     }
 
     if (props.isAuth) {
-        return <Redirect to = '/profile'/>
+        return <Redirect to='/profile'/>
     }
     return (
         <div>
