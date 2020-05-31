@@ -1,19 +1,16 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 
 const ProfileStatusWithHooks = (props) => {
 
     let [editMode, setEditMode] = useState(false);
     let [status, setStatus] = useState(props.status);
 
-    // componentDidUpdate(prevProps, prevState, snapshot)
-    // {
-    //     if (prevProps.status !== this.props.status) {
-    //         this.setState({
-    //             status: this.props.status
-    //         })
-    //     }
-    //     console.log("update");
-    // }
+    //synchronize state
+    //will be called after JSX was returned
+    //if [] is passed is called once
+    useEffect(() => {
+        setStatus(props.status);
+    }, [props.status]);
 
     let activateEditMode = () => {
         setEditMode(true);

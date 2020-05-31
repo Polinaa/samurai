@@ -17,7 +17,6 @@ class ProfileAPIContainer extends React.Component {
     }
 
     render() {
-        console.log("render");
         return (
             <div>
                 <Profile {...this.props} profile={this.props.profile}/>
