@@ -1,6 +1,18 @@
+import {createSelector} from "reselect";
+
 export const getUsers = (state) => {
     return state.users.users;
+    //always returns new array and rerender the componet
+    // return state.users.users.filter(u => true);
 }
+
+export const getUsersWithRerender = (state) => {
+    //always returns new array and rerender the componet
+    return getUsers(state).filter(u => true);
+}
+export const getUsersSuper = createSelector(getUsers, (users) => {
+    return users.filter(u => true);
+});
 
 export const getPageSize = (state) => {
     return state.users.pageSize;
