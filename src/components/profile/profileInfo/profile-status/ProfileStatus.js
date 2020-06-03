@@ -33,9 +33,8 @@ class ProfileStatus extends React.Component {
         });
     }
 
-    updateStatusAndDeActivateEditMode (e) {
-        let status = e.target.value;
-        this.props.updateStatus(status);
+    updateStatusAndDeActivateEditMode () {
+        this.props.updateStatus(this.props.status);
         this.setState({
             editMode: false
         });
@@ -46,8 +45,8 @@ class ProfileStatus extends React.Component {
         return (<div>
             {
                 !this.state.editMode &&
-                <div onDoubleClick={this.activateEditMode}>
-                    <span>
+                <div>
+                    <span onDoubleClick={this.activateEditMode}>
                         {this.props.status || "Double click to add status"}
                     </span>
                 </div>}
