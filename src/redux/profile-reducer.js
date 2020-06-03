@@ -38,37 +38,20 @@ export const addPostActionCreator = (newPostText) => ({type: ADD_POST, newPostTe
 export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile: profile})
 export const setUserStatus = (status) => ({type: SET_USER_STATUS, status: status})
 
-export const getProfileThunkCreator = (userId) => {
-    return (dispatch) => {
-        // this.props.setIsFetching(true);
-        ProfileApi.getProfile(userId)
-            .then(data => {
-                    dispatch(setUserProfile(data));
-                    // this.props.setIsFetching(false);
-                    // this.props.setUsers(response.data.items);
-                    // this.props.setTotalUsersCount(response.data.totalCount);
-                }
-            );
-    }
+export const getProfileThunkCreator = (userId) => async (dispatch) => {
+    let data = await ProfileApi.getProfile(userId);
+    dispatch(setUserProfile(data));
 }
 
-export const getUserStatusThunkCreator = (userId) => {
-    return (dispatch) => {
-        ProfileApi.getStatus(userId)
-            .then(status => {
-                dispatch(setUserStatus(status))
-            })
-    }
+export const getUserStatusThunkCreator = (userId) => async (dispatch) => {
+    const status = await ProfileApi.getStatus(userId);
+    dispatch(setUserStatus(status));
 }
 
-export const updateStatusThunkCreator = (status) => {
-    return (dispatch) => {
-        ProfileApi.updateStatus(status)
-            .then(response => {
-                if (response.data.resultCode === 0) {
-                    dispatch(setUserStatus(status));
-                }
-            })
+export const updateStatusThunkCreator = (status) => async (dispatch) => {
+    const response = await ProfileApi.updateStatus(status);
+    if (response.data.resultCode === 0) {
+        dispatch(setUserStatus(status));
     }
 }
 export default profileReducer;

@@ -10,9 +10,6 @@ const ProfileInfo = (props) => {
     }
     return (
         <div>
-            {/*<div>*/}
-            {/*    <img src='https://www.sciencealert.com/images/2020-03/processed/010-marine-viruses_1024.jpg'/>*/}
-            {/*</div>*/}
             <div className={s.descriptionBlock}>
                 <img src={props.profile.photos.small ? props.profile.photos.small : defaultAva}/>
                 <div>{props.profile.fullName}</div>

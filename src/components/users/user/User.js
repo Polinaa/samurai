@@ -4,30 +4,31 @@ import defaultAva from "../../../assets/images/default-ava.png"
 import {NavLink} from "react-router-dom";
 
 const User = (props) => {
-    let country = props.location !== undefined ? props.location.country : "";
-    let city = props.location !== undefined ? props.location.city : "";
+    let user = props.user;
+    let country = user.location !== undefined ? user.location.country : "";
+    let city = user.location !== undefined ? user.location.city : "";
     return (
         <div className={s.item}>
             <span>
                 <div>
-                    <NavLink to={'/profile/' + props.id}>
-                        <img src={props.photos.small != null ? props.photos.small : defaultAva}/>
+                    <NavLink to={'/profile/' + user.id}>
+                        <img src={user.photos.small != null ? user.photos.small : defaultAva}/>
                     </NavLink>
                 </div>
                 <div>
-                    {!props.followed ?
-                        <button disabled={props.followingInProgress.some(id => id === props.id)} onClick={() => {props.follow(props.id);}}>
+                    {!user.followed ?
+                        <button disabled={props.followingInProgress.some(id => id === user.id)} onClick={() => {props.follow(user.id);}}>
                             Follow
                         </button> :
-                        <button disabled={props.followingInProgress.some(id => id === props.id)} onClick={() => {props.unfollow(props.id);}}>
+                        <button disabled={props.followingInProgress.some(id => id === user.id)} onClick={() => {props.unfollow(user.id);}}>
                             UnFollow
                         </button>}
                         </div>
                         </span>
             <span>
                         <span>
-                        <div>{props.name}</div>
-                        <div>{props.status}</div>
+                        <div>{user.name}</div>
+                        <div>{user.status}</div>
                         </span>
                         <span>
                         <div>{country}</div>

@@ -1,41 +1,28 @@
 import React from 'react';
-import {Field, reduxForm} from "redux-form";
+import {reduxForm} from "redux-form";
 import {connect} from "react-redux";
 import {loginThunkCreator, logoutThunkCreator} from "../../redux/auth-reducer";
 import {maxLength, required} from "../../utils/validators/validators";
-import {Input} from "../common/form-controls/form-controls";
+import {createField, Input} from "../common/form-controls/form-controls";
 import {Redirect} from "react-router-dom";
 import s from "../common/form-controls/form-control.module.css"
 
 const maxLength50 = maxLength(50);
 
-const LoginForm = (props) => {
+const LoginForm = ({handleSubmit, error}) => {
     //handle submit
     //e.preventDefault
     //get all data from form and put them into object
     //props.onSubmit(formData)
     return (
         <div>
-            <form onSubmit={props.handleSubmit}>
-                <div>
-                    <Field placeholder={"Login"}
-                           validate={[required, maxLength50]}
-                           component={Input}
-                           name={"login"}/>
-                </div>
-                <div>
-                    <Field placeholder={"Password"}
-                           validate={[required, maxLength50]}
-                           component={Input}
-                           type={"password"}
-                           name={"password"}/>
-                </div>
-                <div>
-                    <Field type={"checkbox"} component={Input} name={"rememberMe"}/> remember me
-                </div>
-                {props.error
+            <form onSubmit={handleSubmit}>
+                {createField("Login", "login", [required, maxLength50], Input)}
+                {createField("Password", "password", [required, maxLength50], Input, {type: "password"})}
+                {createField("Password", "password", null, Input, {type: "checkbox"}, "remember me")}
+                {error
                 &&
-                (<div className={s.formSummeryError}>{props.error}</div>)}
+                (<div className={s.formSummeryError}>{error}</div>)}
                 <div>
                     <button>Login</button>
                 </div>

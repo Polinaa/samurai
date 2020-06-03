@@ -21,7 +21,8 @@ class UsersApiContainer extends React.Component {
     //Is done only once when component is created and then appended to Dom.
     //After next rerender calls only updates are performed
     componentDidMount() {
-        this.props.getUsers(this.props.currentPage, this.props.pageSize);
+        const {currentPage, pageSize} = this.props;
+        this.props.getUsers(currentPage, pageSize);
     }
 
     // getUsersFromApi = (pageNumber) => {
@@ -37,7 +38,8 @@ class UsersApiContainer extends React.Component {
 
     onPageChanged = (pageNumber) => {
         this.props.setCurrentPage(pageNumber);
-        this.props.getUsers(pageNumber, this.props.pageSize);
+        const {pageSize} = this.props;
+        this.props.getUsers(pageNumber, pageSize);
     }
 
     render() {
