@@ -3,6 +3,7 @@ import {ProfileApi} from "../api/api";
 const ADD_POST = 'ADD-POST';
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
 const SET_USER_STATUS = 'SET_USER_STATUS';
+const SET_PHOTOS = 'SET_PHOTOS';
 
 let initialState = {
     posts: [
@@ -32,11 +33,17 @@ const profileReducer = (state = initialState, action) => {
             ...state, status: action.status
         };
     }
+    if (action.type === SET_PHOTOS) {
+        return {
+            ...state, profile: {...state.profile, photos: action.photos}
+        };
+    }
     return state;
 }
 export const addPostActionCreator = (newPostText) => ({type: ADD_POST, newPostText: newPostText})
 export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile: profile})
 export const setUserStatus = (status) => ({type: SET_USER_STATUS, status: status})
+export const setPhotos = (photos) => ({type: SET_PHOTOS, photos: photos});
 
 export const getProfileThunkCreator = (userId) => async (dispatch) => {
     let data = await ProfileApi.getProfile(userId);
@@ -52,6 +59,13 @@ export const updateStatusThunkCreator = (status) => async (dispatch) => {
     const response = await ProfileApi.updateStatus(status);
     if (response.data.resultCode === 0) {
         dispatch(setUserStatus(status));
+    }
+}
+
+export const loadPhotoThunkCreator = (image) => async (dispatch) => {
+    const response = await ProfileApi.loadPhoto(image);
+    if (response.data.resultCode === 0) {
+        dispatch(setPhotos(response.data.data.photos));
     }
 }
 export default profileReducer;
