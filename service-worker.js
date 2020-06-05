@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/polinaa.github.io/samurai/precache-manifest.d3eb8d3571be3a1980fcd62f834b957d.js"
+  "/polinaa.github.io/samurai/precache-manifest.cb680ca11fab08cb2a40d8be877bb660.js"
 );
 
 self.addEventListener('message', (event) => {

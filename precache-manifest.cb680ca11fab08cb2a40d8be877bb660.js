@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "73f6be6245a708f9b9c5498e4f81beea",
+    "revision": "688bf6ac57310d1b944070f24110476d",
     "url": "/polinaa.github.io/samurai/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/polinaa.github.io/samurai/static/css/3.4c858111.chunk.css"
   },
   {
-    "revision": "9e641dd25564961e6108",
+    "revision": "77a258b2babc6da21afb",
     "url": "/polinaa.github.io/samurai/static/css/main.04b5dafb.chunk.css"
   },
   {
@@ -24,8 +24,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/polinaa.github.io/samurai/static/js/3.493b6506.chunk.js"
   },
   {
-    "revision": "9e641dd25564961e6108",
-    "url": "/polinaa.github.io/samurai/static/js/main.bd907ec9.chunk.js"
+    "revision": "77a258b2babc6da21afb",
+    "url": "/polinaa.github.io/samurai/static/js/main.3c565850.chunk.js"
   },
   {
     "revision": "f1769366bfebbfbd9ddd",
