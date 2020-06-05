@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/polinaa.github.io/samurai/static/css/main.04b5dafb.chunk.css",
+    "main.js": "/polinaa.github.io/samurai/static/js/main.bd907ec9.chunk.js",
+    "main.js.map": "/polinaa.github.io/samurai/static/js/main.bd907ec9.chunk.js.map",
+    "runtime-main.js": "/polinaa.github.io/samurai/static/js/runtime-main.f9a55ef7.js",
+    "runtime-main.js.map": "/polinaa.github.io/samurai/static/js/runtime-main.f9a55ef7.js.map",
+    "static/js/2.bb5bf1f8.chunk.js": "/polinaa.github.io/samurai/static/js/2.bb5bf1f8.chunk.js",
+    "static/js/2.bb5bf1f8.chunk.js.map": "/polinaa.github.io/samurai/static/js/2.bb5bf1f8.chunk.js.map",
+    "static/css/3.4c858111.chunk.css": "/polinaa.github.io/samurai/static/css/3.4c858111.chunk.css",
+    "static/js/3.493b6506.chunk.js": "/polinaa.github.io/samurai/static/js/3.493b6506.chunk.js",
+    "static/js/3.493b6506.chunk.js.map": "/polinaa.github.io/samurai/static/js/3.493b6506.chunk.js.map",
+    "index.html": "/polinaa.github.io/samurai/index.html",
+    "precache-manifest.d3eb8d3571be3a1980fcd62f834b957d.js": "/polinaa.github.io/samurai/precache-manifest.d3eb8d3571be3a1980fcd62f834b957d.js",
+    "service-worker.js": "/polinaa.github.io/samurai/service-worker.js",
+    "static/css/3.4c858111.chunk.css.map": "/polinaa.github.io/samurai/static/css/3.4c858111.chunk.css.map",
+    "static/css/main.04b5dafb.chunk.css.map": "/polinaa.github.io/samurai/static/css/main.04b5dafb.chunk.css.map",
+    "static/js/2.bb5bf1f8.chunk.js.LICENSE.txt": "/polinaa.github.io/samurai/static/js/2.bb5bf1f8.chunk.js.LICENSE.txt",
+    "static/media/preloader.svg": "/polinaa.github.io/samurai/static/media/preloader.b562253d.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f9a55ef7.js",
+    "static/js/2.bb5bf1f8.chunk.js",
+    "static/css/main.04b5dafb.chunk.css",
+    "static/js/main.bd907ec9.chunk.js"
+  ]
+}
