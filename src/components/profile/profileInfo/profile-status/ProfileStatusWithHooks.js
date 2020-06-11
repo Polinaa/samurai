@@ -27,14 +27,14 @@ const ProfileStatusWithHooks = (props) => {
 
     return (<div>
         {
-            !editMode &&
+            (!editMode || !props.isOwner) &&
             <div onDoubleClick={activateEditMode}>
                     <span>
-                        {props.status || "Double click to add status"}
+                        {props.status || props.isOwner && "Double click to add status"}
                     </span>
             </div>}
         {
-            editMode &&
+            editMode && props.isOwner &&
             <div>
                 <input
                     onChange={onStatusChange}

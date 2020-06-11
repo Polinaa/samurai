@@ -30,7 +30,7 @@ const ProfileInfo = (props) => {
             <div className={s.descriptionBlock}>
                 <img src={props.profile.photos.large || defaultAva} className={s.profilePhoto}/>
                 {props.isOwner && <input type={"file"} onChange={onMainPhotoLoaded}/>}
-                <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus}/>
+                <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus} isOwner={props.isOwner}/>
                 {editMode ?
                     <ProfileDataForm initialValues={props.profile} profile={props.profile} onSubmit={onSubmit}/> :
                     <ProfileData profile={props.profile}
