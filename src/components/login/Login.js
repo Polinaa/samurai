@@ -3,7 +3,7 @@ import {reduxForm} from "redux-form";
 import {connect} from "react-redux";
 import {loginThunkCreator, logoutThunkCreator} from "../../redux/auth-reducer";
 import {maxLength, required} from "../../utils/validators/validators";
-import {createField, Input} from "../common/form-controls/form-controls";
+import {createField, Input} from "../common/form-controls/form-control";
 import {Redirect} from "react-router-dom";
 import s from "../common/form-controls/form-control.module.css"
 
@@ -19,7 +19,7 @@ const LoginForm = ({handleSubmit, error}) => {
             <form onSubmit={handleSubmit}>
                 {createField("Login", "login", [required, maxLength50], Input)}
                 {createField("Password", "password", [required, maxLength50], Input, {type: "password"})}
-                {createField("Password", "password", null, Input, {type: "checkbox"}, "remember me")}
+                {createField("RememberMe", "rememberMe", null, Input, {type: "checkbox"}, "remember me")}
                 {error
                 &&
                 (<div className={s.formSummeryError}>{error}</div>)}

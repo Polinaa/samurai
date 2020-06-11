@@ -10,7 +10,7 @@ const FormControl = ({meta, ...props}) => {
     </div>);
 }
 
-export const FormControls = (props) => {
+export const TextArea = (props) => {
     const {meta, input, ...restProps} = props;
     return (
         <FormControl {...props}>

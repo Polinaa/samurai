@@ -4,7 +4,7 @@ import {connect} from "react-redux";
 import {
     getProfileThunkCreator,
     getUserStatusThunkCreator,
-    loadPhotoThunkCreator,
+    loadPhotoThunkCreator, updateProfileThunkCreator,
     updateStatusThunkCreator
 } from "../../redux/profile-reducer";
 import {withRouter} from "react-router-dom";
@@ -56,7 +56,8 @@ export default compose(
     connect(mapStateToProps, {
         getProfile: getProfileThunkCreator, getUserStatus: getUserStatusThunkCreator,
         updateStatus: updateStatusThunkCreator,
-        loadPhoto: loadPhotoThunkCreator
+        loadPhoto: loadPhotoThunkCreator,
+        updateProfile: updateProfileThunkCreator
     }),
     withRouter,
     withAuthRedirect)

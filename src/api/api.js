@@ -45,6 +45,9 @@ export const ProfileApi = {
                 'Content-Type': 'multipart/form-data'
             }
         }));
+    },
+    updateProfile(profile) {
+        return (instance.put(`profile`, profile));
     }
 }
 
@@ -54,7 +57,7 @@ export const AuthApi = {
             .then(response => response.data));
     },
     login(email, password, rememberMe = false) {
-        return (instance.post(`auth/login`, {email, password, rememberMe} )
+        return (instance.post(`auth/login`, {email, password, rememberMe})
             .then(response => response.data));
     },
     logout() {
